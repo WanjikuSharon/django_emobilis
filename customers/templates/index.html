@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>NAIROBI GIRLS CHORALE</h1>
+<div class="text-center p-5 rounded-lg"
+     style="background-color: beige; color: black; padding: 5rem; border-radius: 1rem;">
+    <h1 class="display-4">Welcome to the Nairobi Girls Chorale</h1>
+    <p class="lead">Where Voices Unite in Harmony and Celebrate the Beauty of Song</p>
+    <hr class="my-4" style="border-color: black;">
+    <p>Join us in our mission to inspire through music and uplift the community with every performance.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn More</a>
+    <a class="btn btn-outline-secondary btn-lg" href="#" role="button">Get Involved</a>
+</div>
+
+
 <div id="carouselExampleIndicators" class="carousel slide">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -10,13 +20,13 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="../../static/images/David.JPG" class="d-block w-100" alt="Director">
+      <img src="../../static/images/profile.JPG" class="d-block w-100" alt="Director">
     </div>
     <div class="carousel-item">
-      <img src="../../static/images/profile.JPG" class="d-block w-100" alt="Profile">
+      <img src="../../static/images/David.JPG" class="d-block w-100" alt="Profile">
     </div>
     <div class="carousel-item">
-      <img src="../../static/images/profile.JPG" class="d-block w-100" alt="...">
+      <img src="../../static/images/choir.jpg" class="d-block w-100" alt="Profile">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -28,5 +38,9 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+
+<main>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eaque excepturi, explicabo quisquam unde vitae. Alias, beatae delectus dolore eos eveniet facere facilis hic ipsam natus nostrum optio ratione, tempore voluptatum. Ad, eos ipsam necessitatibus nulla pariatur repellat? A ab accusamus aliquam asperiores consequatur deleniti, eaque, esse in inventore iusto, natus nemo odit placeat quaerat quos repellendus totam voluptate voluptatibus.</p>
+</main>
 
 {% endblock %}

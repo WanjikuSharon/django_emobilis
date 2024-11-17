@@ -1,0 +1,6 @@
+.bg-light {
+    background-image: url('../../static/images/jumbotron.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
