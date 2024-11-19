@@ -1,11 +1,11 @@
 from django import forms
 
-from customers.models import Customers
+from customers.models import Customer
 
 
 class CustomerForm(forms.ModelForm):
     class Meta:
-        model = Customers
+        model = Customer
         fields = '__all__'
 
         widgets= {
