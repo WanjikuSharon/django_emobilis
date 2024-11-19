@@ -10,6 +10,7 @@ class CustomerForm(forms.ModelForm):
 
         widgets= {
             'name':forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your name'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your name'}),
             'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your email'}),
             'gender': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your gender'}),
             'age': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your age'}),
