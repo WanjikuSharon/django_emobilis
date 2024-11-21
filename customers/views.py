@@ -12,7 +12,7 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
-        form = CustomerForm(request.POST)
+        form = CustomerForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('contact')
