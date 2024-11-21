@@ -75,7 +75,7 @@
           <td>{{ customer.email }}</td>
           <td>{{ customer.gender }}</td>
           <td>{{ customer.age }}</td>
-          <td a href="" class="btn bg-success" type="button">UPDATE</td>
+          <td a href="{% url 'update' customer.id %}" class="btn bg-success" type="button">UPDATE</td>
         </tr>
       {% endfor %}
       </tbody>
