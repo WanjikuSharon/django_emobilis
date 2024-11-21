@@ -1,5 +1,7 @@
-from django.shortcuts import render, redirect
+import os.path
 
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from customers.forms import CustomerForm
 from customers.models import Customer
 
