@@ -17,6 +17,7 @@ class CustomerForm(forms.ModelForm):
             'image':forms.ClearableFileInput(attrs=
                                              {
                                                  'class': 'form-control',
-                                                 'accept': ''
+                                                 'accept': 'images/*',
+                                                 'title': 'Upload Your Image'
                                              })
         }
