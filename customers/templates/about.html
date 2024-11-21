@@ -2,35 +2,82 @@
 {% load static %}
 
 {% block content %}
-<h3>Customers List</h3>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">PHOTO</th>
-      <th scope="col">NAME</th>
-      <th scope="col">ADMISSION NUMBER</th>
-      <th scope="col">EMAIL</th>
-      <th scope="col">GENDER</th>
-      <th scope="col">AGE</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for customer in data %}
-    <tr>
-      <td>
-        {% if customer.image %}
-        <img src="{{ customer.image.url }}" alt="{{ customer.name }}" style="width: 80px; height: 80px; object-fit: cover">
-        {% else %}
-        <img src="{% static 'images/placeholder.jpg' %}" alt="No image" style="width: 80px; height: 80px; object-fit: cover">
-        {% endif %}
-      </td>
-      <td>{{ customer.name }}</td>
-      <td>{{ customer.admission_number }}</td>
-      <td>{{ customer.email }}</td>
-      <td>{{ customer.gender }}</td>
-      <td>{{ customer.age }}</td>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
+<div class="container mt-5">
+  <h1 class="text-center">About Agri Mart Online Shop</h1>
+  <p class="text-muted text-center">Your Trusted Platform for Buying and Selling Agricultural Products</p>
+
+  <!-- About Section -->
+  <section class="about-section my-5">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{% static 'images/seeds.jpg' %}" alt="About Agri Mart" class="img-fluid rounded shadow" style="width: 800px; height: 500px">
+      </div>
+      <div class="col-md-6">
+        <h2>Our Mission</h2>
+        <p>
+          At Agri Mart, our mission is to empower farmers and customers by providing an efficient, user-friendly online marketplace
+          for agricultural products. We aim to connect local farmers with buyers, streamline the supply chain, and promote sustainable farming practices.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="values-section my-5">
+    <h2 class="text-center">Our Core Values</h2>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <i class="fas fa-leaf fa-3x text-success"></i>
+        <h4 class="mt-2">Sustainability</h4>
+        <p>We promote eco-friendly farming practices to protect the environment.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-handshake fa-3x text-primary"></i>
+        <h4 class="mt-2">Trust</h4>
+        <p>We are committed to building strong, honest relationships with farmers and customers.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-globe fa-3x text-info"></i>
+        <h4 class="mt-2">Innovation</h4>
+        <p>We leverage cutting-edge technology to improve the agricultural marketplace.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customers List Section -->
+  <section class="customers-section my-5">
+    <h2 class="text-center">Meet Our Customers</h2>
+    <p class="text-center">We are proud to serve a diverse community of farmers and buyers who trust Agri Mart.</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">PHOTO</th>
+          <th scope="col">NAME</th>
+          <th scope="col">ADMISSION NUMBER</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">GENDER</th>
+          <th scope="col">AGE</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for customer in data %}
+        <tr>
+          <td>
+            {% if customer.image %}
+            <img src="{{ customer.image.url }}" alt="{{ customer.name }}" style="width: 80px; height: 80px; object-fit: cover">
+            {% else %}
+            <img src="{% static 'images/placeholder.jpg' %}" alt="No image" style="width: 80px; height: 80px; object-fit: cover">
+            {% endif %}
+          </td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.admission_number }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.gender }}</td>
+          <td>{{ customer.age }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
 {% endblock %}
