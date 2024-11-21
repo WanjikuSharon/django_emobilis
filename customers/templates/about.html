@@ -16,9 +16,15 @@
   <tbody>
   {% for customer in data %}
     <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td>
+        {% if customer.image%}
+        <img  src={{ customer.image.url}}
+      </td>
+      <td>{{customer.name}}</td>
+      <td>{{customer.admission_number}}</td>
+      <td>{{customer.email}}</td>
+      <td>{{customer.gender}}</td>
+      <td>{{customer.age}}</td>
 
   </tbody>
 </table>
