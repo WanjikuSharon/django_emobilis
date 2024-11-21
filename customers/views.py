@@ -23,3 +23,22 @@ def contact(request):
     else:
         form = CustomerForm()
     return render(request, 'contact.html', {'form':form})
+
+def update(request):
+    customer = get_object_or_404(Customer, id=id)
+    if request.method == 'POST':
+        form = CustomerForm(request.POST, request.FILES, instance=customer)
+        if form.is_valid():
+            form.save()
+
+            if 'image' in request.FILES:
+                file_name = os.path.basename(request.FILES['image'].name)
+                messages.success(request, message=f'Customer updated successfully! {file_name} uploaded')
+            else:
+                messages.error(request, message='Customer details updated successfully')
+            return redirect('index')
+        else:
+            messages.error(request, message='Please confirm your changes')
+    else:
+        form = CustomerForm(instance=customer)
+    return render(request, template_name='update.html', context={'form': form, 'customer': customer})
