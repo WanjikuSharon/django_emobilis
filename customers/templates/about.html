@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <h3>Customers List</h3>
@@ -18,16 +19,16 @@
     <tr>
       <td>
         {% if customer.image %}
-        <img  src="{{ customer.image.url }}" alt="{{ customer.name }}" style="width: 80px; height: 80px; object-fit: cover">
+        <img src="{{ customer.image.url }}" alt="{{ customer.name }}" style="width: 80px; height: 80px; object-fit: cover">
         {% else %}
-        <img  src="{% static 'image/placeholder.jpg' %}" alt="No image" style="width: 80px; height: 80px; object-fit: cover">
+        <img src="{% static 'images/placeholder.jpg' %}" alt="No image" style="width: 80px; height: 80px; object-fit: cover">
         {% endif %}
       </td>
-      <td>{{customer.name}}</td>
-      <td>{{customer.admission_number}}</td>
-      <td>{{customer.email}}</td>
-      <td>{{customer.gender}}</td>
-      <td>{{customer.age}}</td>
+      <td>{{ customer.name }}</td>
+      <td>{{ customer.admission_number }}</td>
+      <td>{{ customer.email }}</td>
+      <td>{{ customer.gender }}</td>
+      <td>{{ customer.age }}</td>
     </tr>
   {% endfor %}
   </tbody>
