@@ -48,6 +48,12 @@
   <section class="customers-section my-5">
     <h2 class="text-center">Meet Our Customers</h2>
     <p class="text-center">We are proud to serve a diverse community of farmers and buyers who trust Agri Mart.</p>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert {{ message.tags }}">{{ message }}</div>
+  {% endfor %}
+{% endif %}
     <table class="table table-striped">
       <thead>
         <tr>
@@ -57,7 +63,8 @@
           <th scope="col">EMAIL</th>
           <th scope="col">GENDER</th>
           <th scope="col">AGE</th>
-          <th scope="col">UPDATE</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -75,7 +82,7 @@
           <td>{{ customer.email }}</td>
           <td>{{ customer.gender }}</td>
           <td>{{ customer.age }}</td>
-          <td> <a href="{% url 'update' customer.id %}" class="btn btn-success" type="button"></a>UPDATE</td>
+          <td> <a href="{% url 'update' customer.id %}" class="btn btn-success" type="button">UPDATE</a></td>
         </tr>
       {% endfor %}
       </tbody>
