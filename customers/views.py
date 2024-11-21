@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
 from customers.forms import CustomerForm
+from customers.models import Customer
 
 
 # Create your views here.
@@ -8,7 +9,9 @@ def index(request):
     return render(request, 'index.html')
 
 def about(request):
-    return render(request, 'about.html')
+    data = Customer.objects.all()
+    context = {'data': data}
+    return render(request, 'about.html',context)
 
 def contact(request):
     if request.method == 'POST':
