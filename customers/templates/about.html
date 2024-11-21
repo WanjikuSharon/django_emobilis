@@ -83,6 +83,7 @@
           <td>{{ customer.gender }}</td>
           <td>{{ customer.age }}</td>
           <td> <a href="{% url 'update' customer.id %}" class="btn btn-success" type="button">UPDATE</a></td>
+          <td> <a href="{% url 'delete' customer.id %}" class="btn btn-danger" type="button">UPDATE</a></td>
         </tr>
       {% endfor %}
       </tbody>

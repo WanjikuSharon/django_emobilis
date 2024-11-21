@@ -26,5 +26,6 @@ urlpatterns = [
     path('index/',views.index,name='index'),
     path('about/',views.about,name='about'),
     path('contact/',views.contact,name='contact'),
-    path('update/<int:id>/', views.update,name='update')
+    path('update/<int:id>/', views.update,name='update'),
+    path('delete/<int:id>/', views.delete,name='delete')
 ]
