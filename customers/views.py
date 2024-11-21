@@ -38,7 +38,7 @@ def update(request):
                 messages.success(request, message=f'Customer updated successfully! {file_name} uploaded')
             else:
                 messages.error(request, message='Customer details updated successfully')
-            return redirect('index')
+            return redirect('about')
         else:
             messages.error(request, message='Please confirm your changes')
     else:
