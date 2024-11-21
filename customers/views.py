@@ -26,7 +26,7 @@ def contact(request):
         form = CustomerForm()
     return render(request, 'contact.html', {'form':form})
 
-def update(request):
+def update(request,id):
     customer = get_object_or_404(Customer, id=id)
     if request.method == 'POST':
         form = CustomerForm(request.POST, request.FILES, instance=customer)
