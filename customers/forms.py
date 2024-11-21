@@ -14,4 +14,9 @@ class CustomerForm(forms.ModelForm):
             'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your email'}),
             'gender': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your gender'}),
             'age': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your age'}),
+            'image':forms.ClearableFileInput(attrs=
+                                             {
+                                                 'class': 'form-control',
+                                                 'accept': ''
+                                             })
         }
