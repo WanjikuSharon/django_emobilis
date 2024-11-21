@@ -1,5 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h3>Customers List</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">PHOTO</th>
+      <th scope="col">NAME</th>
+      <th scope="col">EMAIL</th>
+      <th scope="col">GENDER</th>
+      <th scope="col">AGE</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for customer in data %}
+    <tr>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
 
+  </tbody>
+</table>
 {% endblock %}
