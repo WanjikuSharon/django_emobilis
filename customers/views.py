@@ -2,6 +2,7 @@ import os.path
 from django.contrib import messages
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django_daraja.mpesa.core import MpesaClient
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -92,4 +93,15 @@ def orders(request):
             serializer.save()
             return JsonResponse(serializer.data, safe=False, status=status.HTTP_201_CREATED)
         return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+def mpesaapi(request):
+    client = MpesaClient()
+    phone_number = '0758313388'
+    amount = 1
+    account_reference = 'eMobilis'
+    transaction_desc = 'Payment for Web Dev'
+    callback_url = 'https://darajambili.herokuapp.com/express-payment'
+    response = client.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
+    return JsonResponse(response)
 
