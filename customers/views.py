@@ -1,9 +1,15 @@
 import os.path
-
-from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.http import JsonResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+from customers.serializers import CustomerSerializer
 from customers.forms import CustomerForm
 from customers.models import Customer
+
 
 
 # Create your views here.
@@ -56,3 +62,16 @@ def delete(request, id):
         messages.error(request, message='Customer not deleted')
 
     return redirect('about')
+
+@api_view(['GET', 'POST'])
+def customersapi(request):
+    if request.method == 'GET':
+        customers = Customer.objects.all()
+        serializer = CustomerSerializer(customers, many=True)
+        return JsonResponse(serializer.data, safe=False)
+    elif request.method == 'POST':
+        serializer = CustomerSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, safe=False, status=status.HTTP_201_CREATED)
+        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
