@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from customers.serializers import CustomerSerializer
+from customers.Serializers import CustomerSerializer
 from customers.forms import CustomerForm
 from customers.models import Customer
 
