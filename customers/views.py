@@ -82,8 +82,14 @@ def orders(request):
         serializer = OrderSerializer(orders, many=True)
         return JsonResponse(serializer.data, safe=False)
     elif request.method == 'POST':
-        serializer = OrderSerializer(data=request.data)  # Fixed this line to use OrderSerializer
+        # Check if the request contains a list of orders
+        if isinstance(request.data, list):
+            serializer = OrderSerializer(data=request.data, many=True)  # Enable bulk creation
+        else:
+            serializer = OrderSerializer(data=request.data)  # Handle a single order
+
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, safe=False, status=status.HTTP_201_CREATED)
         return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
