@@ -8,8 +8,7 @@ from rest_framework.response import Response
 
 from customers.Serializers import CustomerSerializer
 from customers.forms import CustomerForm
-from customers.models import Customer
-
+from customers.models import Customer, Order
 
 
 # Create your views here.
@@ -71,6 +70,19 @@ def customersapi(request):
         return JsonResponse(serializer.data, safe=False)
     elif request.method == 'POST':
         serializer = CustomerSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, safe=False, status=status.HTTP_201_CREATED)
+        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET', 'POST'])
+def orders(request):
+    if request.method == 'GET':
+        orders = Order.objects.all()
+        serializer = CustomerSerializer(orders, many=True)
+        return JsonResponse(serializer.data, safe=False)
+    elif request.method == 'POST':
+        serializer = Serializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, safe=False, status=status.HTTP_201_CREATED)
