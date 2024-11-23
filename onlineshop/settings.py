@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'customers',
-    'rest_framework'
+    'rest_framework',
+    'django_daraja'
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MPESA_ENVIRONMENT = 'sandbox'
+MPESA_CONSUMER_KEY = 'WFNXaO7wGHBAzhXvS9badhKHFRUWyDF8R7tVStNdui1jJHgf'
+MPESA_CONSUMER_SECRET = '4YF358xgJG5oSAAl84nmX3FXc810575Th2iRKgIsJEp24GmYOSPQC8qPrLIO9VLG'
+MPESA_SHORTCODE = ''
+MPESA_EXPRESS_SHORTCODE = ''
+MPESA_SHORTCODE_TYPE = ''
+MPESA_PASSKEY = ''
+MPESA_INITIATOR_USERNAME = ''
+MPESA_INITIATOR_SECURITY_CREDENTIALS = ''
