@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from customers.Serializers import CustomerSerializer
+from customers.Serializers import CustomerSerializer, OrderSerializer
 from customers.forms import CustomerForm
 from customers.models import Customer, Order
 
@@ -79,10 +79,10 @@ def customersapi(request):
 def orders(request):
     if request.method == 'GET':
         orders = Order.objects.all()
-        serializer = Customerserializer(orders, many=True)
+        serializer = OrderSerializer(orders, many=True)
         return JsonResponse(serializer.data, safe=False)
     elif request.method == 'POST':
-        serializer = Serializer(data=request.data)
+        serializer = OrderSerializer(data=request.data)  # Fixed this line to use OrderSerializer
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, safe=False, status=status.HTTP_201_CREATED)
