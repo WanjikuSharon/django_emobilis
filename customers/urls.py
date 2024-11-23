@@ -30,4 +30,5 @@ urlpatterns = [
     path('delete/<int:id>/', views.delete,name='delete'),
     path('customersapi/', views.customersapi,name='customersapi'),
     path('orders/', views.orders,name='ordersapi')
+    path('mpesaapi/', views.mpesaapi,name='mpesaapi')
 ]

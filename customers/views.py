@@ -103,5 +103,5 @@ def mpesaapi(request):
     transaction_desc = 'Payment for Web Dev'
     callback_url = 'https://darajambili.herokuapp.com/express-payment'
     response = client.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
-    return JsonResponse(response)
+    return HttpsResponse(response)
 
