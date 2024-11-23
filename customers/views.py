@@ -1,6 +1,6 @@
 import os.path
 from django.contrib import messages
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django_daraja.mpesa.core import MpesaClient
 from rest_framework import status
@@ -103,5 +103,5 @@ def mpesaapi(request):
     transaction_desc = 'Payment for Web Dev'
     callback_url = 'https://darajambili.herokuapp.com/express-payment'
     response = client.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
-    return HttpsResponse(response)
+    return HttpResponse(response)
 
