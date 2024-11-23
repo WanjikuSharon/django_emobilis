@@ -79,7 +79,7 @@ def customersapi(request):
 def orders(request):
     if request.method == 'GET':
         orders = Order.objects.all()
-        serializer = CustomerSerializer(orders, many=True)
+        serializer = Customerserializer(orders, many=True)
         return JsonResponse(serializer.data, safe=False)
     elif request.method == 'POST':
         serializer = Serializer(data=request.data)
